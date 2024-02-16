@@ -1,0 +1,7 @@
+{
+  "name": "purrfect-paws",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
