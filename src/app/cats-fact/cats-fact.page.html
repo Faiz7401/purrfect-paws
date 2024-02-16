@@ -1,9 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!-- Side Bar -->
+    <ion-buttons slot="start">
+      <ion-menu-button class="main-content"></ion-menu-button>
+    </ion-buttons>
+    <!-- Headeer -->
     <ion-title><strong>Cat Listing</strong></ion-title>
   </ion-toolbar>
 </ion-header>
-
+<!-- Content? -->
 <ion-content class="bg-photo" [fullscreen]="true">
   <app-cat-list></app-cat-list>
 </ion-content>

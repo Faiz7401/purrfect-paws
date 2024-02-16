@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'cats-fact',
     loadChildren: () => import('./cats-fact/cats-fact.module').then( m => m.CatsFactPageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
 ];
 
 @NgModule({

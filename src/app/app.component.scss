@@ -1,0 +1,35 @@
+icon-title{
+    margin-top: 2px;
+}
+
+p{
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+custom-select ion-icon {
+    margin-right: 8px; /* Adjust this value as needed */
+}
+
+.custom-select {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #4a5568;
+    background-color: #fcf8db;
+    border-radius: 5px;
+    padding: 8px 12px;
+  }
+
+  .user{
+    font-size: 12px;
+  }
+
+  .img{
+    display: flex;
+    display: block;
+    max-width: 300px;
+    max-height: 300px; 
+    margin: auto; 
+  }

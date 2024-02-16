@@ -44,8 +44,8 @@
     }
 
     .body-row{
-        .bil{
-            padding: 8px;
+        .bil p{
+            padding-left: 16px;
             width: 16px
         }
 
@@ -63,11 +63,12 @@
 }
 
 .custom-select {
-    height: 2px;
-    width:120px;
+    margin: 10px;
+    height: 1px;
+    width: 100px;
     display: inline-block;
     font-size: 16px;
-    color: #431407;
+    color: #4a5568;
     background-color: #fde68a;
     border-radius: 5px;
     padding: 8px 12px;
@@ -94,7 +95,7 @@
     padding-bottom: 4px;
     font-weight: 600;
     line-height: 20px;
-    color: #dd6b20;
+    color: #4a5568;
     background-color: rgb(255, 210, 114);
     border-radius: 16px;
 }
