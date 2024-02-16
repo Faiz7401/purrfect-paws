@@ -1,3 +1,49 @@
-<p>
-  cat-list works!
-</p>
+<!-- Search bar -->
+<ion-grid class="item">
+  <ion-col>
+    <ion-searchbar show-clear-button="focus" [(ngModel)]="searchQuery" (ionChange)="search()"></ion-searchbar>
+  </ion-col>
+
+  <ion-col>
+    <ion-label>Search by:</ion-label>
+    <ion-select [(ngModel)]="searchOption" (ionChange)="search()" interface="popover" class="custom-select">
+      <ion-select-option value="breed">Breed</ion-select-option>
+      <ion-select-option value="country">Country</ion-select-option>
+    </ion-select>
+  </ion-col>
+</ion-grid>
+
+
+<!-- Table Cat Listing -->
+<ion-item class="item" *ngIf="data">
+  <ion-grid [fixed] class="table-container">
+    <!-- Header row -->
+    <ion-row class="header-row">
+      <!-- Header columns -->
+      <ion-col class="bil" size="1"><h3>Bil.</h3></ion-col>
+      <ion-col><h3>Breed</h3></ion-col>
+      <ion-col><h3>Country</h3></ion-col>
+      <ion-col><h3>Origin</h3></ion-col>
+      <ion-col><h3>Coat</h3></ion-col>
+      <ion-col><h3>Pattern</h3></ion-col>
+    </ion-row>
+
+    <!-- Body rows -->
+    <ion-row class="body-row" *ngFor="let breed of filteredItems; let i = index;">
+      <!-- Body columns -->
+      <ion-col class="bil" size="1"><p>{{ i + 1 }}</p></ion-col>
+      <ion-col><p><strong>{{ breed.breed }}</strong></p></ion-col>
+      <ion-col><p>{{ breed.country }}</p></ion-col>
+      <ion-col><p>{{ breed.origin }}</p></ion-col>
+      <ion-col><p class="coat">{{ breed.coat }}</p></ion-col>
+      <ion-col><p>{{ breed.pattern }}</ion-col>
+    </ion-row>
+
+    <!-- Table Pagination -->
+    <ion-row class="footer-row">
+      <ion-col size="12">
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
