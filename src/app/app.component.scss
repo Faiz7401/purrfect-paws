@@ -1,23 +1,24 @@
 icon-title{
     margin-top: 2px;
 }
-
+// welcome
 p{
     font-size: 14px;
     margin-left: 20px;
 }
-
+// user icon
 custom-select ion-icon {
-    margin-right: 8px; /* Adjust this value as needed */
+    margin-right: 8px;
 }
 
+// border user info
 .custom-select {
     margin: 10px;
     display: flex;
     align-items: center;
     font-size: 16px;
     color: #4a5568;
-    background-color: #fcf8db;
+    background-color: #fde68a;
     border-radius: 5px;
     padding: 8px 12px;
   }

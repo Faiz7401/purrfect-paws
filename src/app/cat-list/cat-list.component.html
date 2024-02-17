@@ -1,21 +1,39 @@
 <!-- Search bar -->
-<ion-grid class="item">
-  <ion-col>
-    <ion-searchbar show-clear-button="focus" [(ngModel)]="searchQuery" (ionChange)="search()"></ion-searchbar>
-  </ion-col>
+<ion-item class="item">
+  <!-- Search input -->
+  <ion-searchbar show-clear-button="focus" [(ngModel)]="searchQuery" (ionChange)="search()"></ion-searchbar>
 
-  <ion-col>
-    <ion-select [(ngModel)]="searchOption" (ionChange)="search()" interface="popover" class="custom-select">
-      <ion-select-option value="breed">Breed</ion-select-option>
-      <ion-select-option value="country">Country</ion-select-option>
+  <!-- Search option selector in a separate row -->
+  <ion-select [(ngModel)]="searchOption" (ionChange)="search()" interface="popover" class="custom-select">
+    <ion-select-option value="breed">Breed</ion-select-option>
+    <ion-select-option value="country">Country</ion-select-option>
+    <ion-select-option value="origin">Origin</ion-select-option>
+    <ion-select-option value="coat">Coat</ion-select-option>
+    <ion-select-option value="pattern">Pattern</ion-select-option>
     </ion-select>
-  </ion-col>
-</ion-grid>
+</ion-item>
 
 
 <!-- Table Cat Listing -->
 <ion-item class="item" *ngIf="data">
-  <ion-grid [fixed] class="table-container">
+  <ion-grid class="table-container">
+    <!-- Select number of rows -->
+    <ion-row class="page ">
+      <ion-col size="1">
+        <p>Show result by</p>
+        &nbsp;
+      </ion-col>
+      <!-- Dropdown for selecting number of rows per page -->
+      <ion-col >
+        <ion-select class="select-row" interface="popover" [(ngModel)]="itemsPerPage" (ionChange)="fetchCatData()">
+          <ion-select-option [value]="5">5</ion-select-option>
+          <ion-select-option [value]="10">10</ion-select-option>
+          <ion-select-option [value]="15">15</ion-select-option>
+          <ion-select-option [value]="20">20</ion-select-option>
+          <ion-select-option [value]="25">25</ion-select-option>
+        </ion-select>
+    </ion-col>
+    </ion-row>
     <!-- Header row -->
     <ion-row class="header-row">
       <!-- Header columns -->
@@ -28,16 +46,32 @@
     </ion-row>
 
     <!-- Body rows -->
-    <ion-row class="body-row" *ngFor="let breed of filteredItems; let i = index;">
-      <!-- Body columns -->
-      <ion-col class="bil" size="1"><p>{{ i + 1 }}</p></ion-col>
+    <!-- Loop through currentPageItems to display paginated data -->
+    <ion-row class="body-row" *ngFor="let breed of currentPageItems; let i = index;">
+      <!-- Calculate the actual index using currentPage and itemsPerPage -->
+      <ion-col class="bil" size="1"><p>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</p></ion-col>
       <ion-col><p><strong>{{ breed.breed }}</strong></p></ion-col>
       <ion-col><p>{{ breed.country }}</p></ion-col>
       <ion-col><p>{{ breed.origin }}</p></ion-col>
       <ion-col><p class="coat">{{ breed.coat }}</p></ion-col>
-      <ion-col><p>{{ breed.pattern }}</ion-col>
+      <ion-col><p>{{ breed.pattern }}</p></ion-col>
     </ion-row>
 
-    
+
+    <!-- Pagination controls -->
+    <ion-row class="pagination">
+      <!-- Previous page button -->
+      <ion-button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1" fill="solid">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+
+      <!-- Display current page and total pages -->
+      <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
+
+      <!-- Next page button -->
+      <ion-button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === getTotalPages()" fill="solid">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+    </ion-row>
   </ion-grid>
 </ion-item>

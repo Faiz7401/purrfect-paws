@@ -1,3 +1,4 @@
+// all container default
 .item {
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -8,31 +9,61 @@
     margin-right: 80px;
 }
 
+// searchbar
+ion-searchbar{
+    --padding-top: 8px;
+}
+
+// pagination box
+.page {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: start;
+    margin: 5px 0px;
+}
+
+.page p{
+    margin-top: 3px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+}
+
+.select-row {
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #fde68a;
+    
+    flex: 1;
+    width: 45px;
+    min-height: 2px;
+}
+
+// table default
 .table-container{
     width: 60%;
     font-size: 14px;
     
-
+    // header row
     .header-row {
         width: 100%;
-        font-size: 14px;
-        color: #431407;
-        text-align: left;
-        text-transform: uppercase;
         background-color: #fde68a;
 
 
         h3 {
+            color: #431407;
+            text-transform: uppercase;
+            font-size: 12px;
+
             text-align: left;
             padding-left: 24px;
             padding-right: 24px;
             padding-top: 16px;
             padding-bottom: 8px;
-            font-size: 12px;
         }
         
     }
-
+    // body row
     .body-row {
         background-color: #fafafa;
         border-bottom-width: 1px;
@@ -45,6 +76,7 @@
     }
 
     .body-row{
+        color: #4a5568;
         .bil p{
             padding-left: 16px;
         }
@@ -54,7 +86,7 @@
         }
 
         ion-col{
-            padding-left: 18px;
+            --padding-left: 18px;
             padding-right:  18px;
             padding-top: 10px;
             padding-bottom: 8px;
@@ -62,9 +94,11 @@
     }
 }
 
+// search by filter
 .custom-select {
-    margin: 10px;
-    height: 1px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    min-height: 0px;
     width: 100px;
     display: inline-block;
     font-size: 16px;
@@ -86,6 +120,7 @@
     border-color: white;
 }
 
+// coat column
 .coat{
     width: auto;
     display: inline-block;
@@ -98,4 +133,21 @@
     color: #4a5568;
     background-color: rgb(255, 210, 114);
     border-radius: 16px;
+}
+
+// next and prev section
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.pagination ion-button {
+    --background: #fde68a;
+    --color: #4a5568;
+}
+
+.pagination ion-button:hover {
+    --background: #fde6aa;
 }

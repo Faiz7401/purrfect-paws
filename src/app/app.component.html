@@ -1,7 +1,9 @@
 <ion-app>
   <!-- outer -->
+  <!-- Menu content -->
   <ion-menu contentId="main-content">
     <ion-header>
+      <!-- Menu header -->
       <ion-toolbar>
         <ion-img class="img"
           src="assets/logo.jpeg"
@@ -9,6 +11,7 @@
         ></ion-img>
         <p>Welcome</p>
         <ion-title>Purrfect Paws</ion-title>
+        <!-- User info -->
         <ion-item class="custom-select">
           <ion-icon name="person-circle-outline" slot="start"></ion-icon>
           <div class="content">
@@ -19,7 +22,9 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
+      <!-- Menu items -->
       <ion-list>
+        <!-- Cat Listing item -->
         <ion-menu-toggle auto-hide="false">
           <ion-item button routerLink="/cat-facts">
             <ion-icon name="grid-outline" slot="start"></ion-icon>
@@ -28,6 +33,7 @@
         </ion-menu-toggle>
       </ion-list>
       <ion-list>
+        <!-- Log Out item -->
         <ion-item button routerLink="/login">
           <ion-icon name="log-out-outline" slot="start"></ion-icon>
           <ion-label>Log Keluar</ion-label>
@@ -37,42 +43,20 @@
   </ion-menu>
 
   <!-- inner -->
+  <!-- Main content -->
   <div class="ion-page" id="main-content">
     <ion-header>
+      <!-- Header for the main content -->
       <ion-toolbar>
-        <ion-img class="img"
-          src="assets/logo.jpeg"
-          alt=""
-        ></ion-img>
-        <p>Welcome</p>
-        <ion-title>Purrfect Paws</ion-title>
-        <ion-item class="custom-select">
-          <ion-icon name="person-circle-outline" slot="start"></ion-icon>
-          <div class="content">
-            <div>Faiz Azmi</div>
-            <div class="user">User</div>
-          </div>
-        </ion-item>
+        <ion-buttons slot="start">
+          <!-- Menu toggle button -->
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-menu-toggle auto-hide="false">
-          <ion-item button routerLink="/cat-facts">
-            <ion-icon name="grid-outline" slot="start"></ion-icon>
-            <ion-label>Cat Listing</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-      </ion-list>
-      <ion-list>
-        <ion-item button routerLink="/login">
-          <ion-icon name="log-out-outline" slot="start"></ion-icon>
-          <ion-label>Log Keluar</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-content>
   </div>
 
-
+  <!-- Router outlet for main content -->
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
