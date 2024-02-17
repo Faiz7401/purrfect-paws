@@ -23,10 +23,12 @@ interface CatData {
 export class CatListComponent implements OnInit {
 
   
-  searchOption: string = 'breed';
-  searchQuery: string = '';
-  filteredItems: CatBreed[] = [];
   data: CatData | undefined;
+  searchQuery: string = '';
+  searchOption: string = 'breed';
+  filteredItems: CatBreed[] = [];
+  totalDataCount: number = 0;
+
 
   constructor(private httpClient: HttpClient) {}
 
@@ -36,12 +38,12 @@ export class CatListComponent implements OnInit {
 
   fetchCatData() {
     this.httpClient
-      .get<CatData>('https://catfact.ninja/breeds')
+      .get<CatData>('https://catfact.ninja/breeds/')
       .subscribe(
         (data: CatData) => {
           console.log('Fetched cat data:', data);
           this.data = data;
-          this.filteredItems = data.data; // Initialize filteredItems with all data initially
+          this.filteredItems = data.data;
         },
         (error: any) => {
           console.error('Error fetching cat data:', error);
@@ -65,4 +67,5 @@ export class CatListComponent implements OnInit {
       breed[this.searchOption].toLowerCase().includes(this.searchQuery.trim().toLowerCase())
     );
   }
+
 }

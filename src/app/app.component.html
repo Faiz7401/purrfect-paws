@@ -40,27 +40,36 @@
   <div class="ion-page" id="main-content">
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>Menu</ion-title>
+        <ion-img class="img"
+          src="assets/logo.jpeg"
+          alt=""
+        ></ion-img>
+        <p>Welcome</p>
+        <ion-title>Purrfect Paws</ion-title>
+        <ion-item class="custom-select">
+          <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+          <div class="content">
+            <div>Faiz Azmi</div>
+            <div class="user">User</div>
+          </div>
+        </ion-item>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
-      <ion-content class="ion-padding">
-        <ion-list>
-          <ion-buttons>
-            <ion-icon name="grid-outline"></ion-icon>
-            <ion-label> Cat Listing</ion-label>
-          </ion-buttons>
-        </ion-list>
-        <ion-list>
-          <ion-buttons>
-            <ion-icon name="log-out-outline"></ion-icon>
-            <ion-label> Log Keluar</ion-label>
-          </ion-buttons>
-        </ion-list>
-      </ion-content>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button routerLink="/cat-facts">
+            <ion-icon name="grid-outline" slot="start"></ion-icon>
+            <ion-label>Cat Listing</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+      <ion-list>
+        <ion-item button routerLink="/login">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          <ion-label>Log Keluar</ion-label>
+        </ion-item>
+      </ion-list>
     </ion-content>
   </div>
 
